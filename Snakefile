@@ -54,7 +54,7 @@ tbls = {
 
 rule target:
     input:
-        expand('output/munged/{spec}/ncbi/{spec}.sqn',
+        expand('output/munged/{spec}/ncbi/{spec}_ncbi.sqn',
                spec=['Vgerm', 'Vpens', 'Vvulg'])
 
 
@@ -68,8 +68,8 @@ rule table2asn_munged:
         prefix = GetPrefix,
         outdir = 'output/munged/{spec}/ncbi'
     output:
-        val = 'output/munged/{spec}/ncbi/{spec}.val',
-        sqn = 'output/munged/{spec}/ncbi/{spec}.sqn'
+        val = 'output/munged/{spec}/ncbi/{spec}_ncbi.val',
+        sqn = 'output/munged/{spec}/ncbi/{spec}_ncbi.sqn'
     shell:
         'bin/linux64.table2asn_GFF '
         '-M n -J -c -w -euk -Z -r '
